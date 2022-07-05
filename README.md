@@ -125,3 +125,7 @@ Docker useful commands
 > **Start a container with a volume**
 >> docker run -d --name dev_testing -v my-vol:/app mysql:latest<br/>
 >> docker run -d --name dev_testing --mount source=myvol2,target=/app mysql:latest<br/>
+
+> **Save docker container as an Image**
+>> docker commit <container_id/ container_name><br/>
+>> docker tag <newly committed image_id> <Required name of the Image><br/>
