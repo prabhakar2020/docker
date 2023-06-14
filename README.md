@@ -57,7 +57,7 @@ Docker useful commands
 >> docker tag 0e5574283393 fedora/httpd:version1.0<br/>
 
 > **Pass environemnt variables via file while building docker image**
->> docker build -t flask-application $(for i in `cat .env`; do out+="--build-arg $i " ; done; echo $out;out="") .
+>> docker build -t flask-application $(for i in `cat .env`; do out+="--build-arg $i " ; done; echo $out;out="") .<br/>
 *.env file*<br/>
 `ENVIRONMENT=dev`<br/>
 `VERSION=1.0`
