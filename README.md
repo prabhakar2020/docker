@@ -56,6 +56,26 @@ Docker useful commands
 >> docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]<br/>
 >> docker tag 0e5574283393 fedora/httpd:version1.0<br/>
 
+> **Pass environemnt variables via file while building docker image**
+>> docker build -t flask-application $(for i in `cat .env`; do out+="--build-arg $i " ; done; echo $out;out="") .
+*.env file*<br/>
+`ENVIRONMENT=dev`<br/>
+`VERSION=1.0`
+
+> **Pass environemnt variables via commandline while building docker image**
+>> docker build --build-arg ENVIRONEMNT=dev --build-arg VERSION=1.0 -t flask-application . <br/>
+
+> **Pass environemnt variables via file to container**
+>> docker run --env-file .env -it flask-application <br/>
+*.env file*<br/>
+`ENVIRONMENT=dev`<br/>
+`VERSION=1.0`
+
+> **Pass environemnt variables via commandline to container**
+>> docker run -e ENVIRONMENT=dev -e VERSION=1.0 -it flask-application <br/>
+*.env file*<br/>
+`ENVIRONMENT=dev`<br/>
+`VERSION=1.0`
 
 > **Select Environment**
 >> eval $(minikube docker-env)<br/>
